@@ -1,0 +1,372 @@
+/* =========================================================
+   COULEURS — modifie-les ici, tout le site suit
+   ========================================================= */
+:root {
+  --fond: #F9FFF6;
+  --carte: #FFFFFF;
+  --accent: #0B996F;          /* boutons */
+  --accent-texte: #087A59;    /* liens et mots mis en avant (un peu plus foncé pour rester lisible) */
+  --accent-clair: #D7FEC8;    /* badges, survol, menu actif */
+  --sur-accent-clair: #0A5A42;
+  --sur-accent: #FFFFFF;
+  --bordure: #D8EFE8;
+  --texte: #1F2A26;
+  --texte-secondaire: #5E6B66;
+  --ombre: 0 1px 2px rgba(31, 42, 38, .04), 0 8px 24px rgba(11, 153, 111, .06);
+  --ombre-forte: 0 4px 8px rgba(31, 42, 38, .05), 0 20px 40px rgba(11, 153, 111, .14);
+  --fond-entete: rgba(249, 255, 246, .85);
+
+  --rayon: 20px;
+  --rayon-petit: 12px;
+  --police: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --police-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--accent-texte); text-decoration: none; }
+h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.conteneur { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 640px) { .conteneur { padding: 0 24px; } }
+
+.accent { color: var(--accent-texte); }
+.texte-secondaire { color: var(--texte-secondaire); }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+
+/* =========================================================
+   MENU
+   ========================================================= */
+.entete {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--fond-entete);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, box-shadow .3s;
+}
+.entete.defile { border-bottom-color: var(--bordure); box-shadow: 0 4px 20px rgba(0, 0, 0, .04); }
+
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; color: var(--texte); }
+.logo-pastille {
+  display: grid; place-items: center;
+  width: 38px; height: 38px; border-radius: 12px;
+  background: var(--accent); color: var(--sur-accent);
+  font-size: .85rem; letter-spacing: .02em;
+}
+
+.menu { display: flex; gap: 4px; list-style: none; margin: 0; padding: 6px; border-radius: 999px; background: var(--carte); border: 1px solid var(--bordure); }
+.lien-menu {
+  display: block; padding: 8px 16px; border-radius: 999px;
+  color: var(--texte-secondaire); font-weight: 600; font-size: .93rem;
+  transition: background-color .2s, color .2s;
+}
+.lien-menu:hover { color: var(--texte); background: #EEFDE7; }
+.lien-menu.actif { background: var(--accent-clair); color: var(--sur-accent-clair); }
+
+.bouton-icone {
+  display: grid; place-items: center;
+  width: 42px; height: 42px; border-radius: 999px;
+  border: 1px solid var(--bordure); background: var(--carte); color: var(--texte);
+  cursor: pointer; transition: background-color .2s;
+}
+.bouton-icone:hover { background: var(--accent-clair); }
+.bouton-icone svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.bouton-burger { display: none; }
+
+@media (max-width: 760px) {
+  .bouton-burger { display: grid; }
+  .menu {
+    position: absolute; top: 72px; left: 16px; right: 16px;
+    flex-direction: column; padding: 8px; border-radius: var(--rayon);
+    box-shadow: var(--ombre-forte);
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .2s, transform .2s, visibility .2s;
+  }
+  .menu.ouvert { opacity: 1; visibility: visible; transform: none; }
+  .lien-menu { padding: 12px 16px; border-radius: var(--rayon-petit); }
+}
+
+/* =========================================================
+   BOUTONS, CARTES
+   ========================================================= */
+.boutons { display: flex; flex-wrap: wrap; gap: 12px; }
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: 1rem;
+  transition: transform .2s, box-shadow .2s, background-color .2s;
+}
+.bouton-principal { background: var(--accent); color: var(--sur-accent); box-shadow: 0 6px 18px rgba(11, 153, 111, .3); }
+.bouton-principal:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(11, 153, 111, .38); }
+.bouton-secondaire { background: var(--carte); color: var(--texte); border: 1px solid var(--bordure); }
+.bouton-secondaire:hover { background: var(--accent-clair); color: var(--sur-accent-clair); transform: translateY(-2px); }
+
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  padding: 28px;
+  box-shadow: var(--ombre);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+.section { padding: 72px 16px; }
+@media (min-width: 640px) { .section { padding: 96px 24px; } }
+
+.entete-section { text-align: center; max-width: 620px; margin: 0 auto 40px; }
+.entete-section h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 10px; }
+.sur-titre {
+  display: inline-block; margin-bottom: 12px;
+  padding: 4px 14px; border-radius: 999px;
+  background: var(--accent-clair); color: var(--sur-accent-clair);
+  font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+
+/* ---------- Accueil ---------- */
+.accueil {
+  display: grid; align-items: center; gap: 48px;
+  min-height: calc(88vh - 72px);
+  padding-top: 48px; padding-bottom: 48px;
+}
+@media (min-width: 900px) { .accueil { grid-template-columns: 1.2fr 1fr; } }
+
+.accueil h1 { font-size: clamp(2.3rem, 6vw, 3.8rem); font-weight: 800; margin-bottom: 12px; }
+.titre-metier { font-size: clamp(1.15rem, 2.5vw, 1.45rem); font-weight: 600; color: var(--texte-secondaire); margin-bottom: 16px; }
+.accroche { font-size: 1.1rem; color: var(--texte-secondaire); max-width: 540px; margin-bottom: 32px; }
+
+.accueil-visuel { display: flex; justify-content: center; }
+.carte-photo {
+  position: relative; width: min(100%, 360px); aspect-ratio: 1;
+  border-radius: 32px; overflow: visible;
+  background: linear-gradient(150deg, var(--accent-clair) 0%, #A8EFC9 55%, var(--accent) 100%);
+  border: 1px solid var(--bordure); box-shadow: var(--ombre-forte);
+}
+/* La photo a un fond transparent : elle repose sur le dégradé vert */
+.photo {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: 88%; height: auto; max-height: 100%; object-fit: contain; object-position: bottom;
+  border-radius: 0 0 32px 32px;
+}
+.badge-flottant {
+  position: absolute; z-index: 1; display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 999px;
+  background: var(--carte); border: 1px solid var(--bordure); box-shadow: var(--ombre-forte);
+  font-size: .88rem; white-space: nowrap;
+}
+.badge-flottant svg { width: 16px; height: 16px; fill: none; stroke: var(--accent-texte); stroke-width: 2; }
+.badge-bas { bottom: 24px; right: -16px; }
+@media (max-width: 480px) { .badge-bas { right: 4px; } }
+
+/* ---------- À propos ---------- */
+.presentation { max-width: 820px; margin: 0 auto; }
+.presentation p { font-size: 1.06rem; color: var(--texte-secondaire); }
+.presentation strong { color: var(--accent-texte); }
+
+/* ---------- Parcours : frise verticale ---------- */
+.section-serree { padding-top: 24px; }
+.frise { list-style: none; margin: 0 auto; padding: 0; max-width: 820px; position: relative; }
+.frise::before {
+  content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(var(--accent), var(--bordure));
+}
+.etape { position: relative; padding: 0 0 32px 44px; }
+.etape:last-child { padding-bottom: 0; }
+.etape::before {
+  content: ""; position: absolute; left: 4px; top: 4px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--carte); border: 4px solid var(--accent); box-shadow: 0 0 0 4px var(--fond);
+}
+.etape-date {
+  display: inline-block; margin-bottom: 6px; padding: 2px 12px; border-radius: 999px;
+  background: var(--accent-clair); color: var(--sur-accent-clair);
+  font-family: var(--police-mono); font-size: .75rem; letter-spacing: .04em;
+}
+.etape h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 2px; }
+.etape-lieu { font-weight: 600; color: var(--accent-texte); font-size: .93rem; margin-bottom: 6px; }
+.etape p:not(.etape-lieu) { color: var(--texte-secondaire); }
+
+/* ---------- Compétences : bande de logos qui défile ---------- */
+.competences { padding: 24px 0 72px; }
+.defilement {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  padding: 8px 0;
+}
+.piste {
+  display: flex; gap: 14px; width: max-content;
+  list-style: none; margin: 0; padding: 0 7px;
+}
+.js .piste { animation: defiler 45s linear infinite; }
+.defilement:hover .piste { animation-play-state: paused; }
+@keyframes defiler { to { transform: translateX(-50%); } }
+
+.techno {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 18px 12px 12px; border-radius: 16px;
+  background: var(--carte); border: 1px solid var(--bordure); box-shadow: var(--ombre);
+  font-weight: 600; font-size: .95rem; white-space: nowrap;
+  transition: transform .2s, background-color .2s;
+}
+.techno img { width: 28px; height: 28px; }
+.techno:hover { transform: translateY(-3px); background: #F2FFEC; }
+
+/* Sans JavaScript ou sans animation : les logos passent à la ligne */
+html:not(.js) .defilement { -webkit-mask-image: none; mask-image: none; }
+html:not(.js) .piste { flex-wrap: wrap; justify-content: center; width: auto; max-width: 1120px; margin: 0 auto; }
+
+/* ---------- Projets : pile de cartes ---------- */
+.zone-projets { display: flex; flex-direction: column; align-items: center; }
+
+.pile {
+  position: relative;
+  width: min(100%, 640px);
+  aspect-ratio: 16 / 12.5;
+  margin-top: 40px;            /* place pour les cartes du dessous */
+  touch-action: pan-y;         /* on glisse horizontalement, la page défile verticalement */
+  user-select: none; -webkit-user-select: none;
+  border-radius: 24px;
+}
+.carte-pile {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  padding: 12px 12px 0;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #0F3D2E, #0A2A20);
+  border: 1px solid #1C5240;
+  box-shadow: 0 18px 40px rgba(10, 42, 32, .22);
+  color: #fff;
+  transform-origin: 50% 100%;
+  transition: transform .45s cubic-bezier(.2, .8, .2, 1), opacity .45s ease;
+  will-change: transform;
+}
+.carte-pile.sans-transition { transition: none; }
+.carte-pile.dessus { cursor: grab; }
+.carte-pile.dessus:active { cursor: grabbing; }
+
+.fenetre { flex: 1; min-height: 0; display: flex; flex-direction: column; border-radius: 14px; overflow: hidden; background: #fff; }
+.barre-fenetre {
+  position: relative; display: flex; align-items: center; height: 34px; padding: 0 12px;
+  background: #F1F5F3; border-bottom: 1px solid #E1EAE6;
+}
+.points { display: flex; gap: 6px; }
+.points i { width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; }
+.points i:nth-child(2) { background: #FEBC2E; }
+.points i:nth-child(3) { background: #28C840; }
+.adresse {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  padding: 2px 14px; border-radius: 8px; background: #fff; border: 1px solid #E1EAE6;
+  font-family: var(--police-mono); font-size: .72rem; color: #5E6B66;
+  max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.capture { flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: top; pointer-events: none; }
+
+.pied-carte { padding: 14px 8px 16px; }
+.categorie { display: block; font-family: var(--police-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #9FD9BF; margin-bottom: 4px; }
+.pied-carte h3 { font-size: clamp(1.3rem, 3.5vw, 1.7rem); font-weight: 800; }
+
+.carte-pile .details { display: none; }   /* les détails sont recopiés dans le panneau sous la pile */
+
+.commandes { display: flex; align-items: center; gap: 14px; margin: 28px 0 24px; }
+.bouton-rond {
+  display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--bordure); background: var(--carte); color: var(--texte);
+  cursor: pointer; box-shadow: var(--ombre);
+  transition: background-color .2s, transform .2s;
+}
+.bouton-rond:hover { background: var(--accent-clair); transform: translateY(-2px); }
+.bouton-rond svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.indice-glisser {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 999px;
+  background: var(--accent-clair); color: var(--sur-accent-clair);
+  font-family: var(--police-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+}
+.indice-glisser svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.compteur { opacity: .75; }
+
+.panneau-projet { width: min(100%, 640px); }
+.panneau-projet p { color: var(--texte-secondaire); }
+.panneau-projet.change { animation: fondu .4s ease; }
+@keyframes fondu { from { opacity: 0; transform: translateY(6px); } }
+.techs { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 4px 0 18px; padding: 0; }
+.techs li { padding: 5px 14px; border-radius: 999px; background: var(--accent-clair); color: var(--sur-accent-clair); font-size: .82rem; font-weight: 600; }
+.lien-projet { font-weight: 700; display: inline-flex; gap: 6px; }
+.panneau-projet .note-projet { font-size: .9rem; font-weight: 600; color: var(--texte-secondaire); }
+.lien-projet span { transition: transform .2s; }
+.lien-projet:hover span { transform: translateX(4px); }
+
+/* Rond « Glisser » qui suit la souris */
+.curseur-glisser {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  display: grid; place-items: center;
+  width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  font-family: var(--police-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  pointer-events: none; opacity: 0; transform: scale(.4);
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 8px 24px rgba(11, 153, 111, .35);
+}
+.curseur-glisser.visible { opacity: 1; transform: scale(1); }
+.curseur-glisser.appuye { transform: scale(.85); }
+@media (hover: hover) and (pointer: fine) { .pile.avec-curseur .carte-pile.dessus { cursor: none; } }
+
+/* ---------- Contact ---------- */
+.contact { text-align: center; padding: 48px 24px; max-width: 860px; margin: 0 auto; }
+.contact h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 10px; }
+.liens-contact { display: grid; gap: 14px; margin: 32px 0; text-align: left; }
+@media (min-width: 760px) { .liens-contact { grid-template-columns: repeat(3, 1fr); } }
+.lien-contact {
+  display: flex; align-items: center; gap: 14px; min-width: 0;
+  padding: 16px; border-radius: var(--rayon-petit);
+  border: 1px solid var(--bordure); color: var(--texte); font-weight: 600; font-size: .9rem;
+  transition: background-color .2s, transform .2s;
+}
+.lien-contact:hover { background: var(--accent-clair); color: var(--sur-accent-clair); transform: translateY(-2px); }
+.lien-contact svg { flex: none; width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: var(--accent-clair); fill: none; stroke: var(--accent-texte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lien-contact span { min-width: 0; overflow-wrap: anywhere; }
+.lien-contact small { display: block; font-weight: 500; color: var(--texte-secondaire); font-size: .8rem; }
+
+/* ---------- Pied de page ---------- */
+.pied { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 32px; border-top: 1px solid var(--bordure); color: var(--texte-secondaire); font-size: .9rem; }
+.pied p { margin: 0; }
+
+/* =========================================================
+   ANIMATIONS AU DÉFILEMENT
+   ========================================================= */
+.js .apparition { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .apparition.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .apparition { opacity: 1; transform: none; }
+  .defilement { overflow-x: auto; }
+}

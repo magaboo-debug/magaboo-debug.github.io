@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yao Tristan Max — Développeur web &amp; mobile</title>
+  <meta name="description" content="Portfolio de Yao Tristan Max, développeur web et mobile à Abidjan : Laravel, React, Flutter. Projets, compétences et contact.">
+
+  <!-- Aperçu du lien partagé (WhatsApp, LinkedIn, Facebook…). Si l'adresse du site change, mettre à jour og:url et og:image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Yao Tristan Max — Développeur web &amp; mobile">
+  <meta property="og:description" content="Applications web et mobiles avec Laravel, React et Flutter, à Abidjan. Projets, parcours et contact.">
+  <meta property="og:url" content="https://magaboo-debug.github.io/">
+  <meta property="og:image" content="https://magaboo-debug.github.io/images/apercu.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Yao Tristan Max, développeur web et mobile à Abidjan">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ========== MENU ========== -->
+  <header class="entete">
+    <nav class="nav conteneur" aria-label="Menu principal">
+      <a href="#accueil" class="logo">
+        <span class="logo-pastille">TM</span>
+        <span>Tristan Max<span class="accent">.</span></span>
+      </a>
+
+      <ul class="menu" id="menu">
+        <li><a href="#accueil" class="lien-menu actif">Accueil</a></li>
+        <li><a href="#a-propos" class="lien-menu">À propos</a></li>
+        <li><a href="#parcours" class="lien-menu">Parcours</a></li>
+        <li><a href="#projets" class="lien-menu">Projets</a></li>
+        <li><a href="#contact" class="lien-menu">Contact</a></li>
+      </ul>
+
+      <button class="bouton-icone bouton-burger" id="bouton-menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== 1. ACCUEIL ========== -->
+    <section id="accueil" class="accueil conteneur">
+      <div class="accueil-texte apparition">
+        <h1>Bonjour, je suis <span class="accent">Yao Tristan Max</span></h1>
+        <p class="titre-metier">Développeur web &amp; mobile</p>
+        <p class="accroche">
+          Je conçois des applications web et mobiles utiles et faciles à prendre en main,
+          de l'API Laravel jusqu'à l'interface React ou Flutter, et je les mets en production.
+        </p>
+        <div class="boutons">
+          <a href="#projets" class="bouton bouton-principal">Voir mes projets</a>
+          <a href="#contact" class="bouton bouton-secondaire">Me contacter</a>
+        </div>
+      </div>
+
+      <div class="accueil-visuel apparition">
+        <div class="carte-photo">
+          <img src="images/photo.webp" alt="Photo de Yao Tristan Max" class="photo" width="468" height="533">
+          <div class="badge-flottant badge-bas">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Abidjan, Côte d'Ivoire
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 2. À PROPOS ========== -->
+    <section id="a-propos" class="section conteneur">
+      <div class="entete-section apparition">
+        <p class="sur-titre">À propos</p>
+        <h2>Qui suis-je ?</h2>
+      </div>
+
+      <div class="carte presentation apparition">
+        <p>
+          J'ai 21 ans, je vis à Abidjan et je suis développeur web et mobile. Je prépare une
+          <strong>licence en informatique</strong> (développeur d'application) à Pigier CI.
+        </p>
+        <p>
+          En stage chez <strong>DevHome Technologies</strong>, j'ai développé ParcAuto, une application de gestion de parc automobile
+          mise en production sur un serveur VPS avec Docker et Nginx, ainsi que MediChezVous, une plateforme web et mobile
+          de commande de médicaments. Auparavant, au service informatique d'<strong>ACE CI</strong>, j'ai réalisé trois interfaces web
+          pour les services internes et assuré l'assistance aux utilisateurs.
+        </p>
+        <p>
+          Sérieux, autonome et curieux, j'aime partir d'un vrai besoin et livrer un outil propre, qui fonctionne et que l'on peut faire évoluer.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== PARCOURS (frise) ========== -->
+    <!-- Pour ajouter une étape : copie un <li class="etape"> (le plus récent en haut) -->
+    <section id="parcours" class="section section-serree conteneur">
+      <div class="entete-section apparition">
+        <p class="sur-titre">Parcours</p>
+        <h2>Expériences et formation</h2>
+      </div>
+
+      <ol class="frise apparition">
+        <li class="etape">
+          <span class="etape-date">Déc. 2025 – oct. 2026</span>
+          <h3>Stagiaire développeur web &amp; mobile</h3>
+          <p class="etape-lieu">DevHome Technologies · Abidjan</p>
+          <p>ParcAuto (gestion de parc automobile, mise en production sur VPS avec Docker et Nginx) et MediChezVous (commande et livraison de médicaments, web et mobile).</p>
+        </li>
+        <li class="etape">
+          <span class="etape-date">Août 2024 – juil. 2025</span>
+          <h3>Stagiaire au service informatique</h3>
+          <p class="etape-lieu">ACE CI · Plateau, Abidjan</p>
+          <p>Trois interfaces web pour les services internes (Appui technique, Crédit support), maintenance du parc informatique et assistance aux utilisateurs.</p>
+        </li>
+        <li class="etape">
+          <span class="etape-date">En cours</span>
+          <h3>Licence informatique, développeur d'application</h3>
+          <p class="etape-lieu">Pigier CI · Abidjan</p>
+        </li>
+        <li class="etape">
+          <span class="etape-date">2022</span>
+          <h3>Admissibilité au BTS informatique · Baccalauréat série D</h3>
+          <p class="etape-lieu">Pigier CI · Lycée Moderne Cocody</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ========== COMPÉTENCES (bande qui défile) ========== -->
+    <section id="competences" class="competences apparition" aria-labelledby="titre-competences">
+      <div class="conteneur entete-section">
+        <p class="sur-titre">Compétences</p>
+        <h2 id="titre-competences">Mes outils au quotidien</h2>
+      </div>
+
+      <!-- Pour ajouter une compétence : copie un <li> et mets son logo dans images/logos/ -->
+      <div class="defilement">
+        <ul class="piste" id="piste-competences">
+          <li class="techno"><img src="images/logos/php.svg" alt="" width="28" height="28"><span>PHP</span></li>
+          <li class="techno"><img src="images/logos/laravel.svg" alt="" width="28" height="28"><span>Laravel</span></li>
+          <li class="techno"><img src="images/logos/javascript.svg" alt="" width="28" height="28"><span>JavaScript</span></li>
+          <li class="techno"><img src="images/logos/react.svg" alt="" width="28" height="28"><span>React</span></li>
+          <li class="techno"><img src="images/logos/tailwindcss.svg" alt="" width="28" height="28"><span>Tailwind CSS</span></li>
+          <li class="techno"><img src="images/logos/html5.svg" alt="" width="28" height="28"><span>HTML</span></li>
+          <li class="techno"><img src="images/logos/css3.svg" alt="" width="28" height="28"><span>CSS</span></li>
+          <li class="techno"><img src="images/logos/flutter.svg" alt="" width="28" height="28"><span>Flutter</span></li>
+          <li class="techno"><img src="images/logos/dart.svg" alt="" width="28" height="28"><span>Dart</span></li>
+          <li class="techno"><img src="images/logos/mysql.svg" alt="" width="28" height="28"><span>MySQL</span></li>
+          <li class="techno"><img src="images/logos/postgresql.svg" alt="" width="28" height="28"><span>PostgreSQL</span></li>
+          <li class="techno"><img src="images/logos/sqlite.svg" alt="" width="28" height="28"><span>SQLite</span></li>
+          <li class="techno"><img src="images/logos/git.svg" alt="" width="28" height="28"><span>Git</span></li>
+          <li class="techno"><img src="images/logos/github.svg" alt="" width="28" height="28"><span>GitHub</span></li>
+          <li class="techno"><img src="images/logos/docker.svg" alt="" width="28" height="28"><span>Docker</span></li>
+          <li class="techno"><img src="images/logos/nginx.svg" alt="" width="28" height="28"><span>Nginx</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== 3. PROJETS (pile de cartes) ========== -->
+    <section id="projets" class="section conteneur">
+      <div class="entete-section apparition">
+        <p class="sur-titre">Réalisations</p>
+        <h2>Mes projets</h2>
+        <p class="texte-secondaire">Faites glisser la carte, ou utilisez les flèches.</p>
+      </div>
+
+      <div class="zone-projets apparition">
+        <div class="pile" id="pile" tabindex="0" role="region" aria-roledescription="carrousel" aria-label="Projets : flèches gauche et droite pour changer">
+
+          <!-- PROJET 1 — pour ajouter un projet, copie tout un <article> -->
+          <article class="carte-pile">
+            <div class="fenetre">
+              <div class="barre-fenetre"><span class="points"><i></i><i></i><i></i></span></div>
+              <img src="images/parcauto.webp" alt="Page d'accueil de ParcAuto : « Gérez votre flotte automobile avec efficacité »" class="capture" width="1280" height="800" draggable="false">
+            </div>
+            <div class="pied-carte"><span class="categorie">Gestion de flotte · 2026</span><h3>ParcAuto</h3></div>
+            <!-- Détails affichés sous la pile -->
+            <div class="details">
+              <p>Gestion des véhicules, agences, employés et demandes d'affectation. Suivi des assurances, visites techniques, maintenances et carburant, avec alertes par e-mail, rôles (admin, employé, chauffeur) et export Excel. En production sur un VPS avec Docker et Nginx.</p>
+              <ul class="techs"><li>Laravel</li><li>Tailwind CSS</li><li>Docker</li><li>Nginx</li></ul>
+              <!-- Pas de lien : projet réalisé en stage, il appartient à l'entreprise -->
+              <p class="note-projet">Réalisé pour DevHome Technologies · code privé</p>
+            </div>
+          </article>
+
+          <!-- PROJET 2 -->
+          <article class="carte-pile">
+            <div class="fenetre">
+              <div class="barre-fenetre"><span class="points"><i></i><i></i><i></i></span></div>
+              <img src="images/medichezvous.webp" alt="Page d'accueil de MediChezVous : « Vos médicaments, livrés chez vous »" class="capture" width="1280" height="800" draggable="false">
+            </div>
+            <div class="pied-carte"><span class="categorie">Santé · Web &amp; mobile · 2026</span><h3>MediChezVous</h3></div>
+            <div class="details">
+              <p>Commande et livraison de médicaments. Espace pharmacie (stocks, commandes, ordonnances, jours de garde), espace administrateur de validation des pharmacies, API REST sécurisée et application mobile Flutter pour les clients.</p>
+              <ul class="techs"><li>Laravel</li><li>React</li><li>Flutter</li><li>API REST</li></ul>
+              <!-- Pas de lien : code privé et pas encore en ligne -->
+              <a href="mailto:maxyao540@gmail.com?subject=D%C3%A9mo%20de%20MediChezVous" class="lien-projet">Code privé · demander une démo <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- PROJET 3 -->
+          <article class="carte-pile">
+            <div class="fenetre">
+              <div class="barre-fenetre"><span class="points"><i></i><i></i><i></i></span><span class="adresse">suanx.onrender.com</span></div>
+              <img src="images/suanx.webp" alt="Page d'accueil de SuanX : « Apprenez Excel pas à pas »" class="capture" width="1280" height="800" draggable="false">
+            </div>
+            <div class="pied-carte"><span class="categorie">E-learning · Projet personnel · 2026</span><h3>SuanX</h3></div>
+            <div class="details">
+              <p>Plateforme de formation à Excel, du niveau débutant à intermédiaire : leçons en texte et vidéo avec lecture vocale, quiz, exercices à faire dans Excel avec corrigés, progression leçon par leçon et forum d'entraide modéré.</p>
+              <p>En ligne : déployée avec Docker, tests automatiques sur GitHub à chaque modification, connexion avec Google et protection de la connexion contre les attaques par force brute.</p>
+              <ul class="techs"><li>Laravel</li><li>React</li><li>Tailwind CSS</li><li>PostgreSQL</li><li>Docker</li></ul>
+              <a href="https://suanx.onrender.com" class="lien-projet" target="_blank" rel="noopener">Voir le projet <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="commandes">
+          <button class="bouton-rond" id="precedent" type="button" aria-label="Projet précédent">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <span class="indice-glisser">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-1.5a1.5 1.5 0 0 1 3 0V12m0-1a1.5 1.5 0 0 1 3 0v5a5 5 0 0 1-5 5h-1.5a5 5 0 0 1-4-2l-2.8-3.8a1.5 1.5 0 0 1 2.3-1.9L8 15"/></svg>
+            Glissez <span id="compteur" class="compteur">1 / 3</span>
+          </span>
+          <button class="bouton-rond" id="suivant" type="button" aria-label="Projet suivant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <div class="carte panneau-projet" id="panneau-projet" aria-live="polite"></div>
+      </div>
+
+      <!-- Rond « Glisser » qui suit la souris au-dessus de la pile (ordinateur uniquement) -->
+      <div class="curseur-glisser" id="curseur-glisser" aria-hidden="true">Glisser</div>
+    </section>
+
+    <!-- ========== 4. CONTACT ========== -->
+    <section id="contact" class="section conteneur">
+      <div class="carte contact apparition">
+        <p class="sur-titre">Contact</p>
+        <h2>Travaillons ensemble</h2>
+        <p class="texte-secondaire">Un projet, une question ou une opportunité ? Écrivez-moi, je réponds rapidement.</p>
+
+        <div class="liens-contact">
+          <a href="mailto:maxyao540@gmail.com" class="lien-contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+            <span><small>E-mail</small>maxyao540@gmail.com</span>
+          </a>
+          <a href="https://github.com/magaboo-debug" class="lien-contact" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            <span><small>GitHub</small>github.com/magaboo-debug</span>
+          </a>
+          <a href="https://wa.me/2250502745583" class="lien-contact" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c.2 2.9 3.6 6.3 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 0 1-2.2-2.2l.8-1-1-2z"/></svg>
+            <span><small>WhatsApp</small>+225 05 02 74 55 83</span>
+          </a>
+        </div>
+
+        <a href="cv/CV_Yao_Tristan_Max.pdf" class="bouton bouton-principal" target="_blank" rel="noopener">Télécharger mon CV</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied conteneur">
+    <p>© <span id="annee">2026</span> Yao Tristan Max · Abidjan, Côte d'Ivoire</p>
+    <a href="#accueil">Retour en haut ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
